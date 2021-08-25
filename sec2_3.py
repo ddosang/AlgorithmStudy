@@ -8,7 +8,6 @@ K번째 큰 수
 은 22입니다.
 '''
 
-
 n, k = map(int, input().split())
 cards = list(map(int, input().split()))
 
@@ -23,6 +22,7 @@ cards_sum = list(cards_sum) #sort를 위해 다시 list로 만든다.
 cards_sum.sort(reverse=True) #내림차순 정렬
 
 print(cards_sum[k-1]) #k번째니까 index는 k-1
+
 
 
 '''
