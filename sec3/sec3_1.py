@@ -24,6 +24,21 @@ for i in range(n):
         print("NO")
 
 
+# 강의 방법: 글자끼리 비교
+
+for i in range(n):
+    print("#", i+1, sep='', end=' ')
+    word = input()
+    word = word.upper()
+
+    for i in range(len(word)//2):
+        if word[i] != word[len(word)-1-i]: #len(word)-1-i 대신 -1-i로 넣어도 됨.
+            print("NO")
+            break
+    else:
+        print("YES")
+    
+
 '''
 ▣ 입력설명
 첫 줄에 정수 N(1<=N<=20)이 주어지고, 그 다음 줄부터 N개의 단어가 입력된다.
