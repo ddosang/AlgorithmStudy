@@ -19,7 +19,7 @@ def computePrice(x, y, z):
     price = 0
     if x == y and y == z:
         price = 10000 + x*1000
-    elif x == y:
+    elif x == y: #z == x 랑 합쳐서 x 로 계산 가능.
         price = 1000 + x * 100
     elif y == z:
         price = 1000 + y * 100
