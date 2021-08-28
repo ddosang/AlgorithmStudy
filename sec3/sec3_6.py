@@ -19,36 +19,37 @@ for _ in range(n):
 
 max = 0
 
-# #1차원으로 생각한 것
-# for i in range(n):
-#     total = 0
-#     #가로 합
-#     for j in range(n*i, n*(i+1)):
-#         total += arr[j]
-#     if max < total:
-#         max = total
-#
-#     #세로합
-#     total = 0
-#     for j in range(i, n*n, n):
-#         total += arr[j]
-#     if max < total:
-#         max = total
-#
-# #대각선합
-# total = 0
-# for j in range(0, n*n, n+1):
-#     total += arr[j]
-# if max < total:
-#     max = total
-#
-# # 대각선합2
-# total = 0
-# for j in range(n - 1, n * n, n - 1):
-#     total += arr[j]
-# if max < total:
-#     max = total
+#1차원으로 생각한 것
+for i in range(n):
+    total = 0
+    #가로 합
+    for j in range(n*i, n*(i+1)):
+        total += arr[j]
+    if max < total:
+        max = total
 
+    #세로합
+    total = 0
+    for j in range(i, n*n, n):
+        total += arr[j]
+    if max < total:
+        max = total
+
+#대각선합
+total = 0
+for j in range(0, n*n, n+1):
+    total += arr[j]
+if max < total:
+    max = total
+
+# 대각선합2
+total = 0
+for j in range(n - 1, n * n, n - 1):
+    total += arr[j]
+if max < total:
+    max = total
+
+max = 0
 
 #2차원으로 생각한 것
 for i in range(n):
