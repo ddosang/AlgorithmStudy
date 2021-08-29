@@ -17,6 +17,9 @@ for _ in range(n):
     #arr += list(map(int, input().split())) #1차원
     arr.append(list(map(int, input().split()))) #2차원
 
+#arr = [list(map(int, input().split())) for _ in range(n)]
+#이렇게 읽어올 수 있음.
+
 max = 0
 
 #1차원으로 생각한 것
