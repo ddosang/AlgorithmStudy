@@ -27,7 +27,7 @@ def rotateRow(row, leftAndRight, rotateCount):
             right = tempArr.pop(0)
             tempArr.append(right)
         else:
-            left = tempArr.pop(n - 1)
+            left = tempArr.pop(n - 1) #pop() 으로 하면 됨.
             tempArr.insert(0, left)
 
     arr[row] = tempArr
