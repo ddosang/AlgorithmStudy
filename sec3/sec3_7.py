@@ -24,7 +24,8 @@ for i in range(start, end):
     total += arr[mid][i]
 
 #가운데에서 n칸 떨어진 윗열/아랫열 개수 맞춰서 합함.
-while mid >= 0:
+while mid > 0:
+    print(mid)
     mid -= 1
     start += 1
     end -= 1
