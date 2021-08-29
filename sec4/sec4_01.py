@@ -24,7 +24,7 @@ start = 0
 end = n-1
 mid = (n-1)//2
 
-while True:
+while start<=end:
     midInArray = arr[mid] #index가 중간인 값이
     if midInArray < m: #우리가 찾는 m이 중간보다 크면
         start = mid + 1 #mid 뒤쪽 list에서 다시 찾는다.
