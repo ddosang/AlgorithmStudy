@@ -32,6 +32,8 @@ for i in range(7): #행 7개
         check = []
         for k in range(n):
             check.append(arr[i][k + j])
+        # 위의 3줄 대신
+        # check = arr[i][j:j+5]
 
         for k in range(n//2): #다섯 글자니까
             if check[k] != check[n-1-k]:
