@@ -10,10 +10,10 @@
 
 n = int(input())
 
-arr = [[0] * 7]
+arr = [[0] * (n+2)]
 for i in range(n):
     arr += [[0] + list(map(int, input().split())) + [0]]
-arr += [[0] * 7]
+arr += [[0] * (n+2)]
 
 mountain = 0
 
