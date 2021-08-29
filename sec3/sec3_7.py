@@ -31,8 +31,22 @@ while mid >= 0:
 
     for i in range(start, end):
         total += arr[mid][i]
-        total += arr[4-mid][i]
+        total += arr[n-1-mid][i]
 
+
+#강의 방법
+total = 0
+start = end = n//2
+
+for i in range(n):
+    for j in range(start, end+1):
+        total += arr[i][j]
+    if i < n//2:
+        start -= 1
+        end += 1
+    else:
+        start += 1
+        end -= 1
 
 
 print(total)
