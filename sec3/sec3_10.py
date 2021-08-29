@@ -21,7 +21,7 @@
 
 arr = [list(map(int, input().split())) for _ in range(9)]
 oneToNine = list(range(10))
-oneToNine.pop(0)
+oneToNine.pop(0) #[1,2,3,4,5,6,7,8,9]를 만들어서 비교.
 
 total = 0
 
@@ -33,6 +33,8 @@ for i in range(9):
     check.sort()
     if check == oneToNine:
         total += 1
+    else:
+        break
 
     check.clear()
     for j in range(9): #세로
@@ -41,6 +43,8 @@ for i in range(9):
     check.sort()
     if check == oneToNine:
         total += 1
+    else:
+        break
 
 
 #네모들
@@ -55,12 +59,21 @@ for i in range(3):
         check.sort()
         if check == oneToNine:
             total += 1
+        else:
+             break
 
 
 if total == 27:
     print("YES")
 else:
     print("NO")
+
+#강의 방법: 배열을 입력으로 넣으면
+# 전부 0으로 초기화 된 check 배열에
+# check(arr[i][j]) = 1 로 있으면 체크를 해서
+# sum(check) != 9 이면 false
+# ==9 이면 True를 반환하는 함수 만들어 사용.
+
 
 '''
 ▣ 입력설명
