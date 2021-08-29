@@ -36,6 +36,7 @@ for i in range(7): #행 7개
         # check = arr[i][j:j+5]
 
         for k in range(n//2): #다섯 글자니까
+            # if arr[i][j+k] != arr[i][n-1-k+j]: #check 없이도 가능.
             if check[k] != check[n-1-k]:
                 break #다른 숫자가 있으면 회문수가 아님.
 
@@ -50,6 +51,7 @@ for i in range(7):  # 열 7개
             check.append(arr[k + j][i])
 
         for k in range(n // 2):  # 다섯 글자니까
+            # if arr[j+k][i] != arr[n-1-k+j][i]: #check 없이도 가능.
             if check[k] != check[n - 1 - k]:
                 break  # 다른 숫자가 있으면 회문수가 아님.
 
