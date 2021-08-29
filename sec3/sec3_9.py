@@ -15,11 +15,16 @@ for i in range(n):
     arr += [[0] + list(map(int, input().split())) + [0]]
 arr += [[0] * (n+2)]
 
+#index를 초기화해서 사용도 가능. 강의 방법.
+dx = [-1, 0, 1, 0]
+dy = [0, -1, 0, 1]
+
 mountain = 0
 
 for i in range(n):
     for j in range(n):
         num = arr[i+1][j+1]
+        #if num > all(a[i+1][j+1] > a[i+1+dx[k]][j+1+dx[k]] for k in range(4)): #강의 방법
         if num > arr[i][j+1] and num > arr[i+2][j+1] and num > arr[i+1][j] and num > arr[i+1][j+2]:
             #상하좌우보다 크다면 봉우리.
             mountain += 1
