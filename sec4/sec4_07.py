@@ -46,3 +46,9 @@ for i in range(m):
             break
 
 print(max(height) - min(height))
+
+# #강의 방법 : 매번 sorting
+# for _ in range(m):
+#     height[0] += 1
+#     height[m-1] -= 1
+#     height.sort()
