@@ -18,21 +18,22 @@ N명의 승객 몸무게가 주어졌을 때 승객 모두가 탈출하기 위�
 '''
 
 n, m = map(int, input().split())
-height = list(map(int, input().split()))
+weight = list(map(int, input().split()))
 
-height.sort()
+weight.sort()
 
 cnt = 0
-while len(height) > 1: #한명만 남았을 때는 따질 필요가 없음.
+while len(weight) > 1: #한명만 남았을 때는 따질 필요가 없음.
 
     # 젤 가벼운애랑 젤 무거운애 더해서 구명보트 무게 안쪽이면
-    if height[0] + height.pop() <= m:
+    if weight[0] + weight.pop() <= m:
         cnt += 1
-        height.pop(0) #둘이 같이 탈출
+        weight.pop(0) #둘이 같이 탈출
     else:
         cnt += 1 #더 무거우면 젤 무거운 애만 탈출
 
-if len(height) == 1:
+if len(weight) == 1:
     cnt += 1
 
 print(cnt)
+
