@@ -93,5 +93,6 @@ while lt <= rt:
             rt -= 1
 
     tmp.clear()
+
 print(len(where))
 print(where)
