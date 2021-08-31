@@ -69,30 +69,30 @@ print(length)
 print(where)
 
 
-#강의 방법
-lt = 0
-rt = n-1
-last = 0
-tmp = []
-while lt <= rt:
-    if seq[lt] > last:
-        tmp.append((seq[lt], "L"))
-    if seq[rt] > last:
-        tmp.append((seq[rt], "R"))
-
-    tmp.sort()
-
-    if len(tmp) == 0:
-        break
-    else:
-        last = tmp[0][0]
-        where += tmp[0][1]
-        if tmp[0][1] == "L":
-            lt += 1
-        else:
-            rt -= 1
-
-    tmp.clear()
-
-print(len(where))
-print(where)
+# #강의 방법
+# lt = 0
+# rt = n-1
+# last = 0
+# tmp = []
+# while lt <= rt:
+#     if seq[lt] > last:
+#         tmp.append((seq[lt], "L"))
+#     if seq[rt] > last:
+#         tmp.append((seq[rt], "R"))
+#
+#     tmp.sort()
+#
+#     if len(tmp) == 0:
+#         break
+#     else:
+#         last = tmp[0][0]
+#         where += tmp[0][1]
+#         if tmp[0][1] == "L":
+#             lt += 1
+#         else:
+#             rt -= 1
+#
+#     tmp.clear()
+#
+# print(len(where))
+# print(where)
