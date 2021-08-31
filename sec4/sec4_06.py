@@ -33,6 +33,7 @@ entry = [list(map(int, input().split())) for _ in range(n)]
 entry.sort(reverse=True)
 king = entry[0] #키 제일 큰 애를 한명 뽑고
 
+
 cnt = 1
 
 #키 순으로.
@@ -40,6 +41,15 @@ cnt = 1
 for (h, w) in entry:
     if w > king[1]: #키 젤 큰 애 몸무게보다 지금 몸무게가 크면
         king[1] = w
+        cnt += 1
+        
+#강의
+king = 0
+cnt = 0
+
+for h, w in entry:
+    if w > king:
+        king = w
         cnt += 1
 
 print(cnt)
