@@ -37,3 +37,15 @@ for i in range(n-1, -1, -1):
 
 for x in original:
     print(x, end=' ')
+
+
+#강의 방법
+origin = [0] * n
+for i in range(n):
+    cnt = 0
+    for j in range(n):
+        if seq[i] == 0 and origin[j] == 0: #자기자리
+            origin[j] = i+1
+            break
+        elif origin[j] == 0: #자기자리 아님.
+            seq[i] -= 1 #1 감소.
