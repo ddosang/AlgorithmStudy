@@ -40,4 +40,13 @@ for i in range(1, n):
         cnt += 1
         useRoom = i
 
+#강의 방법
+end = 0
+cnt = 0
+for (s, e) in meeting:
+    if s>=end: #다음 회의의 시작 시간이 현재 회의 종료 시간보다 뒷쪽이면
+        end = e
+        cnt += 1
+
+
 print(cnt)
