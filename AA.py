@@ -1,39 +1,18 @@
-
 import sys
-sys.stdin = open("input.txt", "rt")
+#sys.stdin = open("input.txt", "rt")
 
-arr = [list(map(int, input().split())) for _  in range(7)]
-
-n = 5
-total = 0
-
-#가로
-for i in range(7): #행 7개
-    for j in range(8-n): #이어지는 5글자는 7개 안에서 3개 나옴.
-        check = []
-        for k in range(n):
-            check.append(arr[i][k + j])
+n = int(input())
+seq = list(map(int, input().split()))
+original = []
 
 
-        for k in range(n//2): #다섯 글자니까
-            if arr[i][j+k] != arr[i][n-1-k+j]: #check 없이도 가능.
-                break #다른 숫자가 있으면 회문수가 아님.
+#맨 뒤 수는 더 큰 애가 없으니까 그냥 배열에 넣고
+#그 다음 수는 맨 뒤 수보다 앞이면 0 뒤면 1
+#그 다음 수는 자기보다 큰 두 수보다 뒤면 2 하나 앞이면 1 맨 앞이면 0
+# ...
+#결국 역수열은 해당 수보다 작은 수를 다 지운 수열에서 해당 수의 index를 나타낸 것이 됨.
+for i in range(n-1, -1, -1):
+    original.insert(seq[i], i+1)
 
-        else: #이상 없이 돌아간다면 같은 숫자였다 -> 회문수
-            total += 1
-
-#세로
-for i in range(7):  # 열 7개
-    for j in range(8 - n):
-        check = []
-        for k in range(n):
-            check.append(arr[k + j][i])
-
-        for k in range(n // 2):  # 다섯 글자니까
-            if check[k] != check[n - 1 - k]:
-                break  # 다른 숫자가 있으면 회문수가 아님.
-
-        else:  # 이상 없이 돌아간다면 같은 숫자였다 -> 회문수
-            total += 1
-
-print(total)
+for x in original:
+    print(x, end=' ')

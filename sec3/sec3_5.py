@@ -47,8 +47,8 @@ total = arr[lt]
 while(rt < n):
 
     if total < m:
+        total += arr[rt] #sum(arr[lt:rt]) 여기 sum을 써서 시간복잡도가 올라감.
         rt += 1
-        total = sum(arr[lt:rt])
     elif total == m:
         count += 1
         total -= arr[lt]
