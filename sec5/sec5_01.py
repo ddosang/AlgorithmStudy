@@ -73,3 +73,19 @@ for i in range(len(stack)):
     res += stack[i]
 
 print(int(res))
+
+
+#수업 방법
+n, m = map(int, input().split())
+n = list(map(int, str(n)))
+stack = []
+for x in n:
+    while stack and m>0 and stack[-1] < x:
+        stack.pop()
+        m -= 1
+    stack.append(x)
+if m!=0:
+    stack = stack[:-m]
+
+res = ''.join(map(str, stack))
+print(res)
