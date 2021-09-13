@@ -41,6 +41,4 @@ for i in range(len(str)):
         res = calculate(cal, a, b)
         stack.append(res) #연산을 하고 다시 stack에 넣는다.
 
-    print(stack)
-
 print(stack.pop())
