@@ -46,12 +46,12 @@ for i in range(len(str)):
         res += str[i]
 
     else:
-        #top 보다 우선순위가 같거나 낮은게 들어오면 다 pop.
-        #대신 여는 괄호 전까지만 pop.
-        if stack and prior(stack[-1]) >= prior(str[i]):
-            while stack and stack[-1] != '(':
-                pop = stack.pop()
-                res += pop
+        # top 보다 우선순위가 같거나 낮은게 들어오면
+        # 들어온 것과 순위가 같거나 높은 것을 pop.
+        # 대신 여는 괄호 전까지만 pop.
+        if prior(stack[-1]) >= prior(str[i]):
+            while stack and str[i] != "(" and prior(str[i]) <= prior(stack[-1]) :
+                res += stack.pop()
 
         #닫는 괄호가 들어오면 여는 괄호 pop
         if str[i] ==')' and stack[-1] =='(':
@@ -63,3 +63,26 @@ while stack:
     res += stack.pop()
 
 print(res)
+
+
+
+#강의방법
+
+for x in str:
+    if x.isdecimal():
+        res += x
+    else:
+        if x=="(":
+            stack.append(x)
+        elif x =="*" or x == "/":
+            while stack and (stack[-1] == "*" or stack[-1] == "/"):
+            # */보다 순위가 같거나 높은건 */니까.
+                res += stack.pop()
+            stack.append(x)
+        elif x=="+" or x =="-":
+            while stack and (stack[-1] != "("): #전부 다 빼면 되는데 (는 빼면 안됨.
+                res += stack.pop()
+        elif x == ")":
+            while stack and stack[-1] != "(":
+                res += stack.pop()
+            stack.pop() #( 도 빼버리기.
