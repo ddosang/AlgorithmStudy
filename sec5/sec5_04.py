@@ -24,6 +24,7 @@ def calculate(cal, a, b):
     elif cal == "/":
         return a/b
 
+
 str = list(map(str, input()))
 stack = []
 res = ''
