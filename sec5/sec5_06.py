@@ -30,6 +30,8 @@ M번째 환자의 몇 번째로 진료받는지 출력하세요.
 5
 '''
 
+from collections import deque
+
 n, m = map(int, input().split())
 pain = list(map(int, input().split()))
 queue = pain
@@ -63,3 +65,18 @@ while queue:
     else:
         m -= 1
         count += 1
+
+
+#강의 방법 : 그냥 index 번호를 같이 저장.
+Q = [(pos, val) for pos, val in enumerate(list(map(int, input().split())))]
+Q = deque(Q)
+cnt = 0
+while True:
+    pop = Q.popleft()
+    if any(pop[1] < x[1] for x in Q):
+        queue.append(pop)
+    else:
+        cnt += 1
+        if pop[0] == m:
+            print(cnt)
+            break
