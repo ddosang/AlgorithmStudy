@@ -49,7 +49,7 @@ else:
     print("YES")
 
 
-#강의방법1
+#강의방법
 str1 = dict()
 str2 = dict()
 for x in firstWord:
@@ -63,6 +63,34 @@ for i in str1.keys():
             print("NO")
             break
     else:
+        print("NO")
+        break
+else:
+    print("YES")
+
+#강의방법 개선은 내 방식과 같음.
+
+#dictionary를 안쓰고 list를 쓴다면?
+firstWord = input()
+secondWord = input()
+
+str = [0] * 52
+
+for c in firstWord:
+    if ord(c) >= 97:
+        str[26 + ord(c) % 97] += 1
+    elif ord(c) >= 65:
+        str[ord(c) % 65] += 1
+
+for c in secondWord:
+    if ord(c) >= 97:
+        str[26 + ord(c) % 97] -= 1
+    elif ord(c) >= 65:
+        str[ord(c) % 65] -= 1
+
+
+for x in str:
+    if x != 0:
         print("NO")
         break
 else:
