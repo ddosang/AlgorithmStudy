@@ -48,3 +48,13 @@ while len(queue) > 1:
         count = 1
 
 print(queue[0])
+
+
+#강의 방법
+while queue:
+    for i in range(m-1):
+        queue.append(queue.pop(0))
+    queue.pop(0)
+
+    if len(queue) == 1:
+        print(queue.pop(0))
