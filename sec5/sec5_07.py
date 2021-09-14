@@ -36,6 +36,8 @@ AFFDCCFF
 #1 YES
 '''
 
+from collections import deque
+
 vital = list(map(str, input()))
 n = int(input())
 
@@ -57,3 +59,23 @@ for i in range(n):
         print("#%d NO" %(i+1))
     else:
         print("#%d YES" %(i+1))
+
+
+#수업방법
+need = input()
+n = int(input())
+for i in range(n):
+    plan = input()
+    dq = deque(need)
+    for x in plan:
+        if x in dq: #dq 안에 없으면 그냥 지나감.
+            if x != dq.popleft(): #같지 않으면 순서를 안지킨거임.
+                print("#%d NO" %(i+1))
+                break
+
+    else:
+        if len(dq) == 0:
+            print("#%d YES" %(i+1))
+        # 통과가 되더라도 과목이 남아있으면 필수 과목을 다 넣지 않은 것임.
+        else:
+            print("#%d NO" %(i+1))
