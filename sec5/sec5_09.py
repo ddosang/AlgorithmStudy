@@ -33,6 +33,7 @@ for c in arr:
 #첫번째 단어에 있는 각 알파벳에 대한 dict value를 알파벳 개수로 설정
 for c in firstWord:
     anagram[c] += 1
+    #anagram[c] = anagram.get(c, 0) + 1 #이렇게 하면 초기화 없이 가능.
 
 #두번째 단어에서는 알파벳에 대한 dict value를 기존 값 - (두번째 알파벳 개수)로 설정
 for c in secondWord:
