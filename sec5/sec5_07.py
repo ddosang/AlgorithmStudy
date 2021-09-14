@@ -35,6 +35,7 @@ AFFDCCFF
 ▣ 출력예제 2
 #1 YES
 '''
+
 vital = list(map(str, input()))
 n = int(input())
 
@@ -43,9 +44,12 @@ for i in range(n):
     copyVital = vital.copy()
 
     while queue:
+        #queue(계획서순서)를 순서대로 pop하면서
+        #필수 과목의 제일 먼저 해야하는게 나오면 필수과목 큐에서 팝
         if queue.pop(0) == copyVital[0]:
             copyVital.pop(0)
 
+        #필수 수업 큐가 빔 (필수 수업을 순서대로 모두 넣음) -> break
         if not copyVital:
             break
 
