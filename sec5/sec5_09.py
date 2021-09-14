@@ -40,8 +40,29 @@ for c in secondWord:
     anagram[c] -= 1
 
 #만약 두 단어의 구성이 같았다면 value가 모두 0일 것임.
-for key, value in anagram.items():
+#for key, value in anagram.items():
+for value in anagram.values():
     if value != 0:
+        print("NO")
+        break
+else:
+    print("YES")
+
+
+#강의방법1
+str1 = dict()
+str2 = dict()
+for x in firstWord:
+    str1[x] = str1.get(x, 0) + 1
+for x in secondWord:
+    str2[x] = str2.get(x, 0) + 1
+
+for i in str1.keys():
+    if i in str2.keys():
+        if str1[i] != str2[i]:
+            print("NO")
+            break
+    else:
         print("NO")
         break
 else:
