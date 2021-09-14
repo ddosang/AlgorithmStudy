@@ -77,9 +77,9 @@ secondWord = input()
 str = [0] * 52
 
 for c in firstWord:
-    if ord(c) >= 97:
+    if ord(c) >= 97: #c.islower() 써도 됨.
         str[26 + ord(c) % 97] += 1
-    elif ord(c) >= 65:
+    elif ord(c) >= 65: #c.isupper() 써도 됨.
         str[ord(c) % 65] += 1
 
 for c in secondWord:
