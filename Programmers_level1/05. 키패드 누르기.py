@@ -15,14 +15,14 @@ def which_hand(left_loca, right_loca, end, main_hand):
 # 현재 위치와 눌러야 할 위치를 넣으면 거리를 계산해주는 함수.
 def distance(start, end):
     # 1 2 3 이 x축 0 1 2 로
-    # 1 4 7 이 y축 0 1 2 3 으로 되게 하기 위해
-    # 아래 계산 식을 써서 맵핑.
+    # 1 4 7 이 y축 0 1 2 3 으로 맵핑.
     start_x = (start+2) % 3
     start_y = int((start - 1) / 3)
     
     end_x = (end+2) % 3
     end_y = int((end-1) / 3)
     
+    # 거리가 칸 기준이므로 이렇게 거리를 구한다.
     dist = abs(start_x - end_x) + abs(start_y - end_y)
     return dist
     
