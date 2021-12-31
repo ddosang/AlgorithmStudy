@@ -1,3 +1,4 @@
+# 비밀지도s
 import re
 
 def solution(n, arr1, arr2):
@@ -11,4 +12,4 @@ def solution(n, arr1, arr2):
         res = re.sub('0', ' ', res) #0은 공백으로
         answer.append(res)
         
-    return answer
+    return answers
