@@ -1,0 +1,28 @@
+func solution(_ cacheSize:Int, _ cities:[String]) -> Int {
+    var cities = cities.map {
+        $0.lowercased()
+    }
+    var buffer = [String]()
+    var time: Int = 0
+    
+    if cacheSize == 0 {
+        return 5 * cities.count
+    }
+    
+    for i in cities.indices {
+        if buffer.contains(cities[i]) {
+            if let index = buffer.firstIndex(of: cities[i]) {
+                buffer.remove(at: index)
+            }
+            time += 1
+        } else {
+            if buffer.count != 0, buffer.count >= cacheSize {
+                buffer.removeFirst()
+            }
+            time += 5
+        }
+        buffer.append(cities[i])
+    }
+    
+    return time
+}
