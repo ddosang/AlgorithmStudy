@@ -29,6 +29,9 @@ n = int(input())
 
 ox = list(map(int, input().split()))
 
+
+# 연결된 개수가 한 문제의 점수이므로,
+# connect 를 이용해서 한 문제의 점수를 측정.
 score = 0
 connect = 1
 
