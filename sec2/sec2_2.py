@@ -9,27 +9,7 @@ K번째 수
 
 N개의 숫자로 이루어진 숫자열이 주어지면 해당 숫자열중에서 s번째부터 e번째 까지의 수를
 오름 차순 정렬했을 때 k번째로 나타나는 숫자를 출력하는 프로그램을 작성하세요.
-'''
 
-import sys
-#sys.stdin = open("input.txt", "rt")
-
-
-t = int(input())
-
-for i in range(t):
-    n, s, e, k = map(int, input().split())
-
-    array = input().split()
-    array = list(map(int, array))  #array에 바로 받을 수 있음. map 함수 앞에 list로 묶기.
-
-    arr = array[s-1:e]
-    arr.sort()
-    print("#", i+1, sep="", end=' ')
-    print(arr[k-1])
-
-
-'''
 입력설명
 첫 번째 줄에 테스트 케이스 T(1<=T<=10)이 주어집니다.
 각 케이스별
@@ -50,4 +30,24 @@ for i in range(t):
 #1 7
 #2 6
 '''
+
+import sys
+#sys.stdin = open("input.txt", "rt")
+
+
+t = int(input())
+
+for i in range(t):
+    n, s, e, k = map(int, input().split())
+
+    array = input().split()
+    array = list(map(int, array))  #array에 바로 받을 수 있음. map 함수 앞에 list로 묶기.
+
+    arr = array[s-1:e]
+    arr.sort()
+    print("#", i+1, sep="", end=' ')
+    print(arr[k-1])
+
+
+
 
