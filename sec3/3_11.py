@@ -13,19 +13,20 @@ for i in range(7):
 
 # 가로
 for i in range(7):
-    if check(arr[i:i+5]):
-        count += 1
+    row = arr[i]
+    for j in range(7-5+1):
+        if check(row[j:j+5]):
+            count += 1
 
 # 세로
 for i in range(7):
     for j in range((7-5+1)):
-        flag = False
-        for k in range(j, j+2):
-            end = (2*j + 5)
-            if arr[j][i] != arr[end - 1 - j][i]:
+        # 이 부분 알고리즘은 바로 생각났는데 구현에서 꼬여서 푸는데 백년 걸렸다...
+        end = j + 5
+        for k in range(0, 2):
+            if arr[j + k][i] != arr[end - 1 - k][i]:
                 break
         else:
             count += 1
-
 
 print(count)
