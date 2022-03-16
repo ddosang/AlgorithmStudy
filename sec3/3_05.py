@@ -11,13 +11,10 @@ while rt <= n:
     sum_arr = sum(arr[lt:rt])
     if sum_arr == m:
         count += 1
-        # sum_arr -= arr[lt]
         lt += 1
     elif sum_arr > m:
-        # sum_arr -= arr[lt]
         lt += 1
     else:
-        # sum_arr += arr[rt]
         rt += 1
 
 print(count)
