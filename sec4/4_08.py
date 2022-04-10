@@ -9,13 +9,29 @@ left = 0
 right = n-1
 count = 0
 
+# while left <= right:
+#     if people[left] + people[right] <= m:
+#         left += 1
+#         right -= 1
+#     else:
+#         right -= 1
+
+#     count += 
+
+# 안되는 케이스 추가
+
 while left <= right:
     if people[left] + people[right] <= m:
         left += 1
         right -= 1
+        n -= 2
     else:
         right -= 1
+        n -= 1
 
+    count += 1
+
+if n == 1:
     count += 1
 
 print(count)
