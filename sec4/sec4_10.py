@@ -47,5 +47,6 @@ for i in range(n):
         if seq[i] == 0 and origin[j] == 0: #자기자리
             origin[j] = i+1
             break
+        # 0이 있으면 자기 값에서 하나씩 - 해서 카운트
         elif origin[j] == 0: #자기자리 아님.
             seq[i] -= 1 #1 감소.
