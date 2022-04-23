@@ -35,3 +35,27 @@ if n == 1:
     count += 1
 
 print(count)
+
+
+
+# 재복습
+from collections import deque
+
+n, m = map(int, input().split())
+people = list(map(int, input().split()))
+
+people.sort(reverse=True)
+
+people = deque(people)
+count = 0
+while len(people) > 1:
+    if people.popleft() + people[-1] <= m:
+        people.pop()
+
+    count += 1
+
+while people:
+    people.pop()
+    count += 1
+
+print(count)
