@@ -36,3 +36,44 @@ while True:
 
 print(count)
 print(res)
+
+
+# 강의 방법으로 복습
+from functools import reduce
+
+n = int(input())
+numbers = list(map(int, input().split()))
+
+lt = 0
+rt = n-1
+before = 0
+l = []
+res = []
+
+while lt <= rt:
+    if numbers[lt] > before:
+        l.append((numbers[lt], "L"))
+    if numbers[rt] > before:
+        l.append((numbers[rt], "R"))
+
+    if len(l) == 0:
+        break
+    
+    l.sort()
+
+    if before >= l[0][0]:
+        break
+
+    if l[0][1] == "L":
+        lt += 1
+    else:
+        rt -= 1
+
+    before = l[0][0]
+    res.append(l[0])
+    l.clear()
+
+
+print(len(res))
+print(reduce(lambda x, y: x + y, list(map(lambda x:x[1], res))))
+
