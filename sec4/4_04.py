@@ -39,3 +39,38 @@ while left <= right:
 
 print(maxDist)
 
+
+# 재복습
+
+def countHorsesAndDist(dist):
+    last_horse_index = 0
+    count = 1 # 무조건 첫번째 말 데리고 시작.
+
+    for i in range(1, n):
+        if horse_locations[i] - horse_locations[last_horse_index] >= dist:
+            last_horse_index = i
+            count += 1
+
+    return count
+
+
+n, c = map(int, input().split())
+horse_locations = [int(input()) for _ in range(n)]
+horse_locations.sort()
+
+start = 1
+end = horse_locations[n-1] - horse_locations[0]
+max_dist = start
+
+while start <= end:
+    mid = (start + end) // 2
+
+    horse_count = countHorsesAndDist(mid)
+    if horse_count >= c:
+        start = mid + 1
+        if max_dist < mid:
+            max_dist = mid
+    else:
+        end = mid - 1
+
+print(max_dist)
