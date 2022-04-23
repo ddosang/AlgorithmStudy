@@ -67,3 +67,65 @@ while start <= end:
 
 print(minTime)
 
+
+
+
+# 0423
+# k 개를 잘라서 n개로 만들 것임.
+
+def countDVDandTime(time):
+    dvd = 0
+    max_time = 0
+    local_time = 0
+    i = 0
+
+    while i < n:
+        local_time += song_times[i]
+
+        if local_time > time:
+            local_time -= song_times[i]
+            if max_time < local_time:
+                max_time = local_time
+
+            i -= 1
+            dvd += 1
+            local_time = 0
+
+        if i == n-1:
+            if max_time < local_time:
+                max_time = local_time
+            dvd += 1
+        i += 1
+
+    return dvd, max_time
+
+
+
+n, m = map(int, input().split())
+song_times = list(map(int, input().split()))
+
+
+start = max(song_times)
+max_time = start
+end = sum(song_times)
+min_time = end
+
+while start <= end:
+    mid = (start + end) // 2
+
+    dvd, time = countDVDandTime(mid)
+
+    # dvd 장수가 많다? -> 시간이 작다 -> 시간을 늘려야함.
+
+    if dvd > m:
+        start = mid + 1
+
+    # dvd 장수가 적어도 시간이 가장 적은걸 찾아야함.
+    elif time >= max_time and dvd <= m:
+        end = mid - 1
+        if min_time > time:
+            min_time = time
+
+
+print(min_time)
+
