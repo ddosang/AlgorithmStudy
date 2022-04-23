@@ -19,3 +19,20 @@ for i in range(1, n):
         count += 1
 
 print(count)
+
+
+# 재복습
+n = int(input())
+entries = [tuple(map(int, input().split())) for _ in range(n)]
+
+entries.sort(key=lambda x:x[0], reverse=True)
+
+count = 1
+max_weight = entries[0][1]
+for i in range(1, n):
+
+    if entries[i][1] > max_weight:
+        max_weight = entries[i][1]
+        count += 1
+
+print(count)
