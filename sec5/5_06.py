@@ -14,5 +14,4 @@ while illness and (mth in illness):
         if ordered == mth:
             break
 
-    print(illness)
 print(count)
