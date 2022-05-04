@@ -40,12 +40,13 @@ else:
 import sys
 
 def DFS(index, sum):
+    if sum > total // 2:
+        return
+    
     if index == n: # 0번 index 부터 사용.
         if sum == total - sum:
             print("YES")
             sys.exit(0) # 걍 냅다 종료 시켜버려~
-
-        # print(local_sum, check)
 
     else:
         DFS(index + 1, sum + nums[index])
