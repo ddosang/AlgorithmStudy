@@ -12,8 +12,6 @@ def DFS(index):
             # print("YES")
             return True
 
-        # print(local_sum, check)
-
     else:
         check[index] = 1
         DFS(index + 1)
