@@ -53,7 +53,7 @@ def DFS(level):
                 check[i] = 1 # 사용했다고 체크!!!
                 res[level] = i
                 DFS(level + 1) # 하고 내려감!!!
-                check[i] = 0
+                check[i] = 0 # 다시 돌아오면서 0 으로 바꿔서 다른 가지를 탈 수 있게
 
 
 n, m = map(int, input().split())
