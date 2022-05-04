@@ -57,6 +57,10 @@ n = int(input())
 nums = list(map(int, input().split()))
 total = sum(nums)
 
+if total % 2 == 1:
+    print("NO")
+    sys.exit(0)
+
 DFS(0, 0)
 
 print("NO") # 종료가 안됐다면 없는거니까 NO
