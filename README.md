@@ -2,8 +2,10 @@
 - sec 2~8 : [인프런 파이썬 알고리즘 문제풀이 강의](https://www.inflearn.com/course/파이썬-알고리즘-문제풀이-코딩테스트/dashboard) 직접 푼 코드
 
 
-- 아래의 알고리즘 강의 자료 복습 
+- 아래의 알고리즘 강의 자료 복습 / 문제 풀이 예정
 
+
+<br><br>
 
 
 # Algorithm
