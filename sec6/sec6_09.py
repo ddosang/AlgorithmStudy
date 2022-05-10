@@ -80,4 +80,25 @@ for i in range(1, n - 1):
 DFS(0, 0)
 
 
+# itertools permutations 사용
 
+from itertools import permutations
+
+n, f = map(int, input().split())
+b = [1] * n
+
+for i in range(1, n - 1):
+    b[i] = b[i - 1] * (n - i) / i
+
+arr = list(range(1, n + 1))
+
+
+for p in permutations(arr, n):
+    sum = 0
+    for i in range(n):
+        sum += b[i] * p[i]
+
+    if sum == f:
+        for i in range(n):
+            print(p[i], end=' ')
+        break
