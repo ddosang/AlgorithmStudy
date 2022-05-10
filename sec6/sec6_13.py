@@ -13,7 +13,9 @@ def DFS(start):
         ch[start] = 1
         for i in range(n):
             if arr[start][i] == 1 and ch[i] == 0:
+                res.append(i + 1)
                 DFS(i)
+                res.pop() # 경로 출력도 빼야함.
                 ch[i] = 0 # 꺾는 것은 DFS 에서 방문한 곳 기준이니까.
 
 
@@ -27,7 +29,7 @@ for i in range(m):
     start, end = map(int, input().split())
     arr[start - 1][end - 1] = 1
 
-res = [0] * n
+res = [1]
 cnt = 0
 
 DFS(0)
