@@ -1,0 +1,61 @@
+import sys
+
+readl = sys.stdin.readline
+
+
+def check(d):
+    # print('d=', d)
+    # 첫번째 구간에서 시작.
+    pos = grasses[0][0]
+    cow = 1
+
+    for i in range(m):
+        start, end = grasses[i]
+		
+        # 만약에 다음 구간이 d 거리 사이에 있다면 다음 구간부터 체크.
+        if pos + d > end:
+            continue
+
+        # 다음 구간 시작이 d 이상 떨어져있으면 다음 구간 시작으로 설정.
+        if (start - pos) >= d:
+            pos = start
+            # cow += 1
+            # print(pos, cow)
+
+        # 다음 구간 시작이 d 이상 떨어져있지 않으면서
+        # 다음 구간이 엄청 작지 않으면 d 더해서 넘어감.
+        elif pos + d <= end:
+            pos += d
+        
+
+        # 예를 들어서
+        cow += (end - pos) // d + 1
+        pos += ((end - pos) // d) * d
+        # print(pos, cow)
+
+    return cow
+
+
+n, m = map(int, readl().split())
+grasses = [list(map(int, readl().split())) for _ in range(m)]
+
+
+    # 가장 가까운 두 소 사이의 거리가 최대가 되도록.
+
+left = 0
+right = grasses[-1][1] - grasses[0][0]
+
+sol = -1
+
+while left <= right:
+    mid = (left + right) // 2
+
+    # 소가 많음 -> 거리를 늘려야 함.
+    if check(mid) >= n:
+        left = mid + 1
+        sol = mid
+    else:
+        right = mid - 1
+
+
+print(sol)
