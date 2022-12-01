@@ -65,3 +65,4 @@ for i in range(N):
         if fur[i][j] == 'X':
             xarr.append((i, j))
             xcnt += 1
+            
