@@ -9,6 +9,7 @@ def digit_sum(x):
 
 n = int(input())
 arr = list(map(int, input().split()))
-sum_arr = list(map(lambda x: digit_sum(x) ,arr))
+sum_arr = list(map(digit_sum ,arr))
+# list(map(lambda x: digit_sum(x) ,arr))
 
 print(arr[sum_arr.index(max(sum_arr))])
