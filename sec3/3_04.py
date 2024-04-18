@@ -11,11 +11,19 @@ while arr1 and arr2:
     else:
         res.append(arr2.pop(0))
 
-while arr1:
-    res.append(arr1.pop(0))
+# while arr1:
+#     res.append(arr1.pop(0))
+#
+# while arr2:
+#     res.append(arr2.pop(0))
+# 240418 복습 하면서 발전
+if arr1:
+    ans += arr1
 
-while arr2:
-    res.append(arr2.pop(0))
+if arr2:
+    ans += arr2
 
 for r in res:
     print(r, end=' ')
+
+
