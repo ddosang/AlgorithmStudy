@@ -9,7 +9,8 @@ m = int(input())
 for i in range(m):
     row, is_right, spin_count = map(int, input().split())
     row -= 1
-
+    spin_count %= N # 240419 : N 번 돌면 다시 원점. 
+    
     arr_row = arr[row]
     if is_right:
         arr_row = arr_row[n-spin_count:] + arr_row[:n-spin_count]
