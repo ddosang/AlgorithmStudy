@@ -20,3 +20,18 @@ if n % 2 == 1:
     res += arr[n//2][n//2]
 
 print(res)
+
+
+# 240419 복습
+N = int(input())
+nums = [list(map(int, input().split())) for _ in range(N)]
+
+mid = N // 2
+ans = 0
+for i in range(mid):
+    ans += sum(nums[i][mid - i:mid+i+1])
+    ans += sum(nums[N - 1 - i][mid - i:mid+i+1])
+
+ans += sum(nums[mid])
+
+print(ans)
