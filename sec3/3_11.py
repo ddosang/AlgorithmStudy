@@ -30,3 +30,50 @@ for i in range(7):
             count += 1
 
 print(count)
+
+
+
+# 240422
+def check_palin(temp):
+    length = len(temp) // 2
+
+    for i in range(length):
+        if temp[i] != temp[len(temp) - 1 - i]:
+            return False
+    
+    return True
+
+def check_palin_in_row(i):
+    row = arr[i]
+    
+    cnt = 0
+    leng = 5
+    for i in range(len(row) - leng + 1):
+        if check_palin(row[i:i+leng]):
+            cnt += 1
+
+    return cnt
+
+def check_palin_in_col(i):
+    col = []
+
+    for j in range(7):
+        col.append(arr[j][i])
+
+    cnt = 0
+    leng = 5
+    for i in range(len(col) - leng + 1):
+        if check_palin(col[i:i+leng]):
+            cnt += 1
+    
+    return cnt
+
+
+arr = [list(map(int, input().split())) for _ in range(7)]
+
+cnt = 0
+for i in range(7):
+    cnt += check_palin_in_row(i)
+    cnt += check_palin_in_col(i)
+
+print(cnt)
