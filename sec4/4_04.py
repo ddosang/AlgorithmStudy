@@ -40,37 +40,41 @@ while left <= right:
 print(maxDist)
 
 
-# 재복습
+# 240414
+def count_horse(dist):
+    present = houses[0] # 첫번째 말을 골라야 다른 말을 고를 때 거리가 최대가 되게 할 수 있음.
+    cnt = 1
+    for h in houses:
+        # dist 보다 먼 말을 선택해서 마릿수 카운트
+        if h - present >= dist:
+            present = h
+            cnt += 1
 
-def countHorsesAndDist(dist):
-    last_horse_index = 0
-    count = 1 # 무조건 첫번째 말 데리고 시작.
-
-    for i in range(1, n):
-        if horse_locations[i] - horse_locations[last_horse_index] >= dist:
-            last_horse_index = i
-            count += 1
-
-    return count
+    return cnt
 
 
-n, c = map(int, input().split())
-horse_locations = [int(input()) for _ in range(n)]
-horse_locations.sort()
+N, C = map(int, input().split())
+houses = []
+for _ in range(N):
+    houses.append(int(input()))
 
-start = 1
-end = horse_locations[n-1] - horse_locations[0]
-max_dist = start
+houses.sort()
 
-while start <= end:
-    mid = (start + end) // 2
 
-    horse_count = countHorsesAndDist(mid)
-    if horse_count >= c:
-        start = mid + 1
-        if max_dist < mid:
-            max_dist = mid
+s = 1
+e = houses[N-1] - houses[0]
+ans = 0
+
+while s <= e:
+    mid = (s + e) // 2
+
+    # 말이 더 많이 들어갈 수 있는건 정답일 수 있는 상황
+    # 근데 말이 많다 == 거리가 짧다 == 거리를 늘려서 그 중 가장 먼 거리를 구하자.
+    if count_horse(mid) >= C:
+        s = mid + 1
+        ans = mid
     else:
-        end = mid - 1
+        e = mid - 1
 
-print(max_dist)
+
+print(ans)
