@@ -31,8 +31,13 @@ while left <= right:
 
     count += 1
 
-if n == 1:
-    count += 1
+# if n == 1:
+#    count += 1
+
+# 그리고 맨 마지막에 1명이 남으면 s == e 가 되는데,
+# 그럼 1명이 남아있다는 말이기 때문에 1명을 더 태운다.
+if left == right:
+    cnt += 1
 
 print(count)
 
