@@ -5,7 +5,7 @@ def split_tree(height):
             total += (t - height)
     return total
 
-# 다 해봐야하나..? 싶었는데 너무 많을거같음 -> 이진탐색
+# 다 해봐야하나..? 싶었는데 너무 많을 것 같음 -> 이진탐색
 
 N, M = map(int, input().split())
 trees = list(map(int, input().split()))
