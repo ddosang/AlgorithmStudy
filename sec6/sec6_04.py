@@ -64,3 +64,37 @@ if total % 2 == 1:
 DFS(0, 0)
 
 print("NO") # 종료가 안됐다면 없는거니까 NO
+
+
+# 240625 복습
+import sys
+input = sys.stdin.readline
+
+def DFS(level):
+    global sum_local
+    if level == N:
+        if sum_local == total - sum_local:
+            print(sum_local, total)
+            print("YES")
+            exit(0)
+        return
+    
+    sum_local += arr[level]
+    DFS(level + 1)
+    sum_local -= arr[level]
+    DFS(level + 1)
+
+
+N = int(input())
+arr = list(map(int, input().split()))
+total = sum(arr)
+sum_local = 0
+
+if total % 2 == 1:
+    print("NO")
+    exit(0)
+
+
+DFS(0)
+
+print("NO")
