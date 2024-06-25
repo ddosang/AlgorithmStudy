@@ -21,3 +21,29 @@ vertexes = [i + 1 for i in range(n)]
 
 check = [0] * (n + 1)
 DFS(1)
+
+
+
+# 240625 복습
+import sys
+input = sys.stdin.readline
+
+def DFS(level):
+    if level == N + 1:
+        li = filter(lambda x: x != 0, ch)
+        print(*li, sep=' ')
+        return
+    
+    ch[level] = level
+    DFS(level + 1)
+    ch[level] = 0
+    DFS(level + 1)
+
+
+
+
+
+N = int(input())
+
+ch = [0] * (N + 1)
+DFS(1)
