@@ -34,7 +34,6 @@ else:
 
 
 
-    
 # 강의 코드
 # check 를 쓰지 않고, sum 을 이용해서!!
 import sys
