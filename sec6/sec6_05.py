@@ -70,3 +70,52 @@ total = sum(dogs)
 max_weight = 0
 DFS(0, 0, 0)
 print(max_weight)
+
+
+
+# 240625 복습
+import sys
+input = sys.stdin.readline
+
+
+def DFS(level, tot):
+    global max_baduk
+
+    # 무게를 초과해버리면 검사할 필요 없음. 
+    if tot > C:
+        return
+
+    # 최대 무게가 나오면 그 이상 검사할 필요 없음.
+    if tot == C:
+        print(sum)
+        exit(0)
+        return
+    
+    # 앞으로 들어갈 걸 다 합쳐도 지금 max 보다 작으면 검사할 필요 X.
+    if max_baduk > tot + sum(dogs[level:]):
+        return
+
+    # DFS 로 더할 수 있을 만큼 더했으면 거기서 max 저장.
+    if level == N:
+        max_baduk = max(max_baduk, tot)
+        return
+    
+
+    DFS(level + 1, tot + dogs[level])
+    DFS(level + 1, tot)
+
+
+
+C, N = map(int, input().split())
+dogs = [int(input()) for _ in range(N)]
+dogs.sort(key=lambda x:-x)
+total = sum(dogs)
+max_baduk = 0
+
+# 다 태운게 더 작으면 굳이 검사할 필요도 없음.
+if total <= C:
+    print(total)
+    exit(0)
+
+DFS(0, 0)
+print(max_baduk)
