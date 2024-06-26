@@ -35,3 +35,47 @@ DFS(0, 0)
 
 print(min_count)
 
+
+
+# 240626 복습
+# 예시에서 1 2 5 로 15 를 만들어야 해서
+# 5 -> 3 2 1 0 개 쓸 수 있음
+# 2 -> 7 6 5 4 3 2 1 0 개 쓸 수 있음
+# 1 -> 15 ~ 0 개 쓸 수 있음
+# 이렇게 종류를 가지고 들어가서 DFS 로 탐색.
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+coins = list(map(int, input().split()))
+coins.sort(key=lambda x:-x)
+fee = int(input())
+ch = [0] * N
+min_cnt = fee // coins[-1] + 1
+
+def DFS(level, current):
+    global min_cnt
+    if sum(ch) > min_cnt: # 이 가지를 처음에 안쳐서 4, 5 번 시간 초과
+        return
+
+    if current > fee:
+        return
+    
+    if current == fee:
+        # print(ch)
+        min_cnt = min(min_cnt, sum(ch))
+        return
+
+    if level == N:
+        # print(ch)
+        return
+    
+
+    for i in range(int((fee - current) / coins[level]) + 1, -1, -1):
+        ch[level] = i
+        DFS(level + 1, current + coins[level] * i)
+
+
+
+DFS(0, 0)
+print(min_cnt)
