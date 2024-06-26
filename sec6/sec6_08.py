@@ -64,3 +64,32 @@ res = [0] * (m)
 DFS(0)
 
 print(count)
+
+
+# 240626 복습
+# 이것보단 위의 방법이 나을듯. i in ch 를 체크하는데도 오래 걸림.
+import sys
+input = sys.stdin.readline
+
+
+N, M = map(int, input().split())
+ch = [0] * M
+cnt = 0
+
+def H(level):
+    global cnt
+    if level == M:
+        cnt += 1
+        print(*ch, sep=' ')
+        return
+    
+    for i in range(1, N + 1):
+        if (not i in ch) and ch[level] == 0:
+            ch[level] = i
+            H(level + 1)
+            ch[level] = 0
+
+
+H(0)
+print(cnt)
+
