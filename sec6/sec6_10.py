@@ -58,3 +58,28 @@ ch = [0] * (n + 1)
 DFS(0, 1)
 
 print(count)
+
+
+# 240627 복습
+
+def DFS(level):
+    global cnt
+    if level == M:
+        cnt += 1
+        print(*res, sep=' ')
+        return
+    
+    for i in range(res[level - 1], N + 1):
+        if ch[i] == 0:
+            ch[i] = 1
+            res[level] = i
+            DFS(level + 1)
+            ch[i] = 0
+
+N, M = map(int, input().split())
+ch = [0] * (N + 1)
+res = [1] * M
+cnt = 0
+
+DFS(0)
+print(cnt)
