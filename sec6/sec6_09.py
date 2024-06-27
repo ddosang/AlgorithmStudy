@@ -102,3 +102,77 @@ for p in permutations(arr, n):
         for i in range(n):
             print(p[i], end=' ')
         break
+
+
+# 240627 복습
+# 파스칼의 삼각형을 직접 더하기로 만듬 -> 더하기 횟수 O(n^2) 
+import sys
+input = sys.stdin.readline
+
+# 2차원 배열에 N 줄의 파스칼 삼각형 채움
+# 1
+# 1 1
+# 1 2 1
+# 1 3 3 1
+# ...
+def triangle(height):
+    arr = [[0] * height for _ in range(height)]
+    arr[0][0] = 1
+    for row in range(1, height):
+        arr[row][0] = 1
+        arr[row][row] = 1
+        for col in range(1, row):
+            arr[row][col] = arr[row - 1][col - 1] + arr[row - 1][col]
+
+    return arr
+
+# 1차원 배열을 이용해서 위에서 N 줄에 저장했던 것을 N 줄에 저장하지 않고, 한줄에 계속 갱신
+def triangle2(height):
+    arr = [0] * N
+    arr[0] = 1
+    arr[1] = 1
+
+    for row in range(2, height + 1):
+        left = arr[0]
+        right = arr[1]
+        for col in range(1, row - 1):
+            new = left + right
+            left = right
+            right = arr[col + 1]
+
+            arr[col] = new
+        arr[row - 1] = 1
+
+    return arr
+            
+
+def DFS(level, current):
+    if current > F:
+        return
+
+    if level == N:
+        if current == F:
+            print(*res, sep=' ')
+            exit(0)
+
+        return
+    
+    for i in range(1, N + 1):
+        if ch[i] == 0:
+            ch[i] = 1
+            res[level] = i
+            # DFS(level + 1, current + arr[N - 1][level] * i) # triangle 1
+            DFS(level + 1, current + arr[level] * i)
+            ch[i] = 0
+
+
+# 파스칼의 삼각형
+N, F = map(int, input().split())
+
+ch = [0] * (N + 1)
+res = [0] * N 
+
+# arr = triangle(N)
+arr = triangle2(N)
+DFS(0, 0)
+
