@@ -39,3 +39,38 @@ for c in combinations(arr, k):
         cnt += 1
 
 print(cnt)
+
+
+# 240701 복습
+from itertools import combinations
+
+import sys
+input = sys.stdin.readline
+
+
+def DFS(level, sum, start):
+    global cnt
+
+    if level == K:
+        if sum % M == 0:
+            cnt += 1
+        return
+    
+
+    for i in range(start, N):
+        DFS(level + 1, sum + nums[i], i + 1)
+
+
+N, K = map(int, input().split())
+nums = list(map(int, input().split()))
+M = int(input())
+cnt = 0
+
+DFS(0, 0, 0)
+
+# for li in combinations(nums, K):
+#     print(li)
+#     if sum(li) % M == 0:
+#         cnt += 1
+
+print(cnt)
