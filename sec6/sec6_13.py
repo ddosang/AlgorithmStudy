@@ -34,3 +34,34 @@ cnt = 0
 
 DFS(0)
 print(cnt)
+
+
+# 240701 복습
+N, M = map(int, input().split())
+edges = [list(map(int, input().split())) for _ in range(M)]
+
+arr = [[0] * N for _ in range(N)]
+visited = [False] * N
+
+for start, end in edges:
+    arr[start - 1][end - 1] = 1
+
+
+def DFS(start):
+    global cnt
+    if start == N - 1:
+        cnt += 1
+        return
+    
+    for i in range(N):
+        if arr[start][i] == 1 and (not visited[i]):
+            visited[i] = True
+            DFS(i)
+            visited[i] = False
+
+
+cnt = 0
+visited[0] = True
+DFS(0)
+print(cnt)
+
