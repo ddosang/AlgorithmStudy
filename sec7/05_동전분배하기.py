@@ -21,3 +21,35 @@ def DFS(level, a, b, c):
 
 DFS(0, 0, 0, 0)
 print(min_diff)
+
+
+# 강의 코드
+N = int(input())
+coins = [int(input()) for _ in range(N)]
+min_diff = sum(coins)
+persons = [0] * 3 # 배열을 쓰는데 넘기지 않고 전역변수로.
+
+def DFS(level):
+    global min_diff
+
+    if level == N:
+
+        # 중복 체크는 set 을 이용함.
+        tmp = set()
+        for x in persons:
+           tmp.add(x)
+        
+        if len(tmp) < 3:
+            return
+
+        diff = max(persons) - min(persons)
+        min_diff = min(diff, min_diff)
+        return
+    
+    for i in range(3):
+        persons[i] += coins[level]
+        DFS(level + 1)
+        persons[i] -= coins[level]
+
+DFS(0)
+print(min_diff)
