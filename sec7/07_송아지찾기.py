@@ -12,3 +12,39 @@ else:
     cnt = S - E
 
 print(cnt)
+
+
+
+# 강의 코드
+from collections import deque
+
+def BFS(S):
+    global cnt
+    q = deque()
+
+    q.append((S, 0))
+    visited[0] = 1
+
+    while q:
+        x, current = q.popleft()
+
+        if x == E:
+            print(current)
+            return
+
+        for dx in [-1, 1, 5]:
+            if x + dx <= 0 or x + dx > 10000:
+                continue
+
+            if ((x + dx) in visited.keys()):
+                continue
+
+            q.append((x + dx, current + 1))
+            visited[x + dx] = 1  # visited 체크를 여기서 해야 시간복잡도에 안걸림.
+        # print(q)
+
+
+S, E = map(int, input().split())
+
+visited = {} # 강의에선 그냥 ch = [0] * 10001 로 함.
+BFS(S)
